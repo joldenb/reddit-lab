@@ -3,7 +3,7 @@ Building a [Reddit](https://www.reddit.com/) clone using the popular MERN (Mongo
 
 ![reddit-homepage](./reddit-homepage.png?raw=true "Reddit Homepage")
 
-
+**note:** If you wish to reference solution code, you can do so [here](https://github.com/sf-wdi-40/reddit-clone-mern/tree/solution).
 
 ## PROJECT SETUP
 1. `git clone` this repo
@@ -25,9 +25,10 @@ Building a [Reddit](https://www.reddit.com/) clone using the popular MERN (Mongo
 2. Add the following API CRUD routes for `Posts`
     - `/api/posts` – GET, POST
     - `/api/posts/:post_id` – GET, PUT, DELETE
+    - Note: With this setup, routes are going in config/routes.js
 3. Fill out the `Posts` controller using Mongoose queries
 4. Add to your `seed.js` file to create a `Post` – verify that it shows up at the appropriate endpoint
-5. Use POSTMAN to confirm that the other CRUD routes are working as well (PUT, DELETE)
+5. Use POSTMAN or curl to confirm that the other CRUD routes are working as well (PUT, DELETE)
 
 ### Creating Comment resource
 1. Create a `Comment` model that contains `content`, `votes`
@@ -36,11 +37,11 @@ Building a [Reddit](https://www.reddit.com/) clone using the popular MERN (Mongo
     - `/api/posts/:post_id/comments/:comment_id` – GET, PUT, DELETE
 3. Fill out the `Comments` controller using Mongoose queries
 4. Add to your `seed.js` file to create a `Comment`, attached to a `Post` you've created – verify that it shows up at the appropriate endpoint
-5. Use POSTMAN to confirm that the other CRUD routes are working as well (PUT, DELETE)
+5. Use POSTMAN or curl to confirm that the other CRUD routes are working as well (PUT, DELETE)
 
 ### Verifying Data Creation
-1. Use POSTMAN to create two `Post`s 
-2. Use POSTMAN to create two `Comment`s, both attached to the first `Post` you created
+1. Use POSTMAN or curl to create two `Post`s 
+2. Use POSTMAN or curl to create two `Comment`s, both attached to the first `Post` you created
 3. Populate the `seed.js` file to automate data seeding
 
 
@@ -61,6 +62,7 @@ Building a [Reddit](https://www.reddit.com/) clone using the popular MERN (Mongo
 4. Think about the containers you will need
     - What components will each container contain
     - What API requests will each container make
+    - **note:** containers seperate the functionality from the UI. If you need an AJAX call to fetch Comment data, that would happen from a CommentContainer, and be passed to a Comment.js component where it gets displayed. 
 5. Think about the HTTP request library you'd like to use to fetch data from your Node API endpointments (e.g. `$.ajax`, `fetch`, `axios`, etc.)
 
     
