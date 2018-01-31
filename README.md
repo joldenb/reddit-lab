@@ -3,7 +3,7 @@ Building a [Reddit](https://www.reddit.com/) clone using the popular MERN (Mongo
 
 ![reddit-homepage](./reddit-homepage.png?raw=true "Reddit Homepage")
 
-
+**note:** If you wish to reference solution code, you can do so [here](https://github.com/sf-wdi-40/reddit-clone-mern/tree/solution).
 
 ## PROJECT SETUP
 1. `git clone` this repo
