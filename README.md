@@ -3,9 +3,12 @@ Building a [Reddit](https://www.reddit.com/) clone using the popular MERN (Mongo
 
 ![reddit-homepage](./reddit-homepage.png?raw=true "Reddit Homepage")
 
-**note:** If you wish to reference solution code, you can do so [here](https://github.com/sf-wdi-40/reddit-clone-mern/tree/solution).
+**note:** If you wish to reference solution code, you can do so [here](https://github.com/awhit012/reddit-clone-mern-with-solution/tree/solution).
 
 ## PROJECT SETUP
+
+We have the structure of the app all built out for you on the front and back end! It's up to you to fill in the custom code to make it all work! 
+
 1. `git clone` this repo
 2. Install all dependencies for both the front-end and back-end
 3. Make sure MongoDB is running (`mongod`), then start your Node and React servers
@@ -14,7 +17,7 @@ Building a [Reddit](https://www.reddit.com/) clone using the popular MERN (Mongo
 5. Take a look around:
     - BACK-END: What routes, models, and controllers have been set up? What kind of database is it connecting to?
     - FRONT-END: What components have been set up?
-6. Install `nodemon` and change your `npm start` for the back-end to run `nodemon server.js`
+6. run `nodemon server.js`
         
 
 
@@ -40,7 +43,7 @@ Building a [Reddit](https://www.reddit.com/) clone using the popular MERN (Mongo
 5. Use POSTMAN or curl to confirm that the other CRUD routes are working as well (PUT, DELETE)
 
 ### Verifying Data Creation
-1. Use POSTMAN or curl to create two `Post`s 
+1. Use [POSTMAN](https://www.getpostman.com/) or curl to create two `Post`s 
 2. Use POSTMAN or curl to create two `Comment`s, both attached to the first `Post` you created
 3. Populate the `seed.js` file to automate data seeding
 
@@ -50,11 +53,10 @@ Building a [Reddit](https://www.reddit.com/) clone using the popular MERN (Mongo
 
 ### Setting up React
 1. Go to your React app's homepage – research how you can access your local Node server from your React app [here](https://www.fullstackreact.com/articles/using-create-react-app-with-a-server/#the-rub-)
-    - run `npm init` in the base of your `reddit-clone-mern/` directory
-    - run `npm install concurrently --save`
-    - change your `start` script in your new `package.json` directory to be `"start": "concurrently \"cd front-end && npm start\" \"cd back-end && npm start\""`
+    - `cd front-end`
+    - `npm install`
+    - `npm start`
     - In your `front-end/package.json`, add a line for your React app to proxy to your Node API: `"proxy": "http://localhost:8080/"`
-    - Close all running servers – go to the base of your `reddit-clone-mern/` directory and run `npm start`
 2. Pull in [react-router](https://github.com/ReactTraining/react-router) to implement the following routes
     - `/` – Should show home dashboard where posts' titles and thumbnail images are displayed
     - `/posts/:post_id` – Clicking on a post should redirect to its show page (all post content, attached comments, and form for adding comments)
