@@ -9,7 +9,15 @@ function index(req, res) {
 }
 
 function create(req, res) {
-  
+	let newPostDocument = {
+		title : req.body.title,
+		content : req.body.content,
+		thumbnail_image_url : req.body.image
+	}
+  TextPost.create(newPostDocument, function(err, newDocument){
+  	if (err) res.send(err);
+  	res.json(newDocument);
+  })
 }
 
 function show(req, res) {

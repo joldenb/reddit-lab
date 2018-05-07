@@ -23,7 +23,26 @@ class TextPost extends Component {
 
 
 	onFormSubmit(event) {
+		event.preventDefault()
+		let newPost = {
+			title : this.state.newTitle,
+			content : this.state.newContent,
+			image : this.state.newImage
+		}
 
+		let this = this
+
+		axios.post("/api/posts", newPost).then((results) => {
+			this.setState({
+				newTitle : "",
+				newContent : "",
+				newImage : "",
+				posts : {
+					data : this.state.posts.data.push(results.data)
+				}
+			})
+
+		})
 	}
 
 	onTitleChange(event){
@@ -58,7 +77,7 @@ class TextPost extends Component {
 			this.setState({
 				posts : results
 			})
-		})	
+		})
 	}
 
 	render() {
