@@ -90,3 +90,5 @@ We have the structure of the app all built out for you on the front and back end
     - Should have `name` and `slug` (e.g. 'Software Engineering', 'software-engineering')
     - `Post` should have a `subreddit_id`
     - There should be a React route for going to subreddit routes (e.g. `/r/software-engineering`)
+=======
+# reddit-lab
