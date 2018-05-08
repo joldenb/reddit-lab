@@ -19,8 +19,24 @@ class TextPost extends Component {
 		this.onTitleChange = this.onTitleChange.bind(this)
 		this.onContentChange = this.onContentChange.bind(this)
 		this.onThumbnailChange = this.onThumbnailChange.bind(this)
+		this.axiosCallback = this.axiosCallback.bind(this)
 	}
 
+
+	axiosCallback(results) {
+		console.log("this is " )
+		console.log(this)
+		let newData = this.state.posts.data
+		newData.push(results.data)
+		this.setState({
+			newTitle : "",
+			newContent : "",
+			newImage : "",
+			posts : {
+				data : newData
+			}
+		})
+	}
 
 	onFormSubmit(event) {
 		event.preventDefault()
@@ -30,17 +46,7 @@ class TextPost extends Component {
 			image : this.state.newImage
 		}
 
-		axios.post("/api/posts", newPost).then((results) => {
-			this.setState({
-				newTitle : "",
-				newContent : "",
-				newImage : "",
-				posts : {
-					data : this.state.posts.data.push(results.data)
-				}
-			})
-
-		})
+		axios.post("/api/posts", newPost).then(this.axiosCallback)
 	}
 
 	onTitleChange(event){
@@ -97,13 +103,13 @@ class TextPost extends Component {
 				<h1>Add a new one</h1>
 				<form onSubmit={this.onFormSubmit}>
 					<label htmlFor="toenails"> Title
-						<input id="toenails" type="text" onChange={this.onTitleChange}/>
+						<input id="toenails" type="text" onChange={this.onTitleChange} value={this.state.newTitle}/>
 					</label>
 					<label htmlFor="wills-toenails"> Content
-						<input id="wills-toenails" type="text" onChange={this.onContentChange}/>
+						<input id="wills-toenails" type="text" onChange={this.onContentChange}  value={this.state.newContent}/>
 					</label>
 					<label htmlFor="hurricanes"> Thumbnail Image
-						<input id="hurricanes" type="text" onChange={this.onThumbnailChange}/>
+						<input id="hurricanes" type="text" onChange={this.onThumbnailChange}  value={this.state.newImage}/>
 					</label>
 					<button type="submit">Click ME!!!</button>
 				</form>
