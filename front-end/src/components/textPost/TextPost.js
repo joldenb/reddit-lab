@@ -30,8 +30,6 @@ class TextPost extends Component {
 			image : this.state.newImage
 		}
 
-		let this = this
-
 		axios.post("/api/posts", newPost).then((results) => {
 			this.setState({
 				newTitle : "",
